@@ -40,11 +40,11 @@ public class TtlQueueConfig {
     @Bean("queueB")
     public Queue queueB() {
         Map<String, Object> args = new HashMap<>(3);
-//声明当前队列绑定的死信交换机
+        //声明当前队列绑定的死信交换机
         args.put("x-dead-letter-exchange", Y_DEAD_LETTER_EXCHANGE);
-//声明当前队列的死信路由 key
+        //声明当前队列的死信路由 key
         args.put("x-dead-letter-routing-key", "YD");
-//声明队列的 TTL
+        //声明队列的 TTL
         args.put("x-message-ttl", 40000);
         return QueueBuilder.durable(QUEUE_B).withArguments(args).build();
     }
